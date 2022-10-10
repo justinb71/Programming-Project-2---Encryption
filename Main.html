@@ -52,7 +52,7 @@
 
 		<h2 id = "simpleCeaserMenuLabel">Simple Ceaser</h2><br>
 		
-		<button onClick="goBack()" class = "simpleCeaserBackbutton" id = "backButton" type="button"><</button>
+		<button onClick="goBack()" class = "backButton" id = "backButton" type="button"><</button>
 		
 		<label id = "simpleCeaserOffsetNumberLabel" >Offset Number</label>
 		
@@ -62,7 +62,7 @@
 		
 		<input class = "simpleModeInput"  type="text" id = "simpleCeaserMessage"></input><br><br>
 
-		<button type = "button" id = "simpleModeEnter" onClick="simpleCeaserMode()">Enter</button><br><br>
+		<button class = "simpleModeEnter" type = "button" id = "simpleModeEnter" onClick="simpleCeaserMode()">Enter</button><br><br>
 		
 		<label >Message:</label>
 		<label id = "simpleMessageOutput" ></label><br>
@@ -79,7 +79,7 @@
 	
 		<h2 id = "keywordEncryptionMenuLabel">Keyword Encryption</h2><br>
 		
-		<button onClick="goBack()" class = "simpleCeaserBackbutton" id = "backButton" type="button"><</button>
+		<button onClick="goBack()" class = "backButton" id = "backButton" type="button"><</button>
 		
 		<label id = "keywordInputLabel" >Keyword</label>
 		<input class = "keywordInput"  type="text" id = "keywordInput"></input><br><br>
@@ -102,13 +102,15 @@
 
 		<h2 id = "simpleCeaserDecryptionMenuLabel">Simple Ceaser Decryption</h2><br>
 		
-		<button onClick="goBack()" class = "simpleCeaserBackbutton" id = "backButton" type="button"><</button>
+		<button onClick="goBack()" class = "backButton" id = "backButton" type="button"><</button>
 		
+		<label id = "simlpeDecryptionOffsetLabel" >Offset:</label>
+		<input class = "simpleDecryptionInput"  type="number" id = "simpleDecryptionOffsetInput"></input><br>
+
 		<label id = "simpleCeaserMessageLabel">Message</label>
-		
 		<input class = "simpleDecryptionInput"  type="text" id = "simpleCeaserEncryptedMessage"></input><br><br>
-		
-		<button type = "button" id = "simpleDecryptionModeEnter" onClick="simpleCeaserDecoder()">Enter</button><br><br>
+
+		<button class = "simpleModeEnter" type = "button" id = "simpleDecryptionModeEnter" onClick="simpleCeaserDecoder()">Enter</button><br><br>
 		
 		<label >Encrypted:</label>
 		<label id = "encryptedMessageOutput" ></label><br>
@@ -116,8 +118,8 @@
 		<label >Decrypted:</label>
 		<label id = "decryptedMessageOutput" ></label><br>
 		
-		<label >Offset:</label>
-		<label id = "decryptedOffsetLabel" ></label><br>
+		
+		
 
 	</div>
 	

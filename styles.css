@@ -112,7 +112,7 @@
 
 
 
-
+ 
 html{
 	font-family: helvetica;
 	
@@ -224,9 +224,11 @@ font-size: 20px;
 }
 
 
-.simpleCeaserDecryptionMenu{
-	width: 255px;
-	height: 245px;
+
+
+.keywordEncryptionMenu{
+	width: 270px;
+	height: 275px;
 	
 	opacity:0;
 	top:30vw;
@@ -235,9 +237,9 @@ font-size: 20px;
 
 }
 
-.keywordEncryptionMenu{
-	width: 270px;
-	height: 275px;
+.simpleCeaserDecryptionMenu{
+	width: 255px;
+	height: 245px;
 	
 	opacity:0;
 	top:30vw;
@@ -299,7 +301,7 @@ button:active {
 }
 
 
-#simpleModeEnter{
+.simpleModeEnter{
 
 width:325px;
 
@@ -398,6 +400,8 @@ input[type="number"]:focus{
 	left: 175px;	
 }
 
+
+
 /*CSS for when the input fields are in use*/
 .simpleModeInput:focus {
 
@@ -489,11 +493,5 @@ input[type=number]::-webkit-outer-spin-button {
 
 
 
-
-
-}
-}
-
-}
 
 

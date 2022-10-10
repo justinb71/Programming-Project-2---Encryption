@@ -69,6 +69,29 @@ function selectType() {
 			}
 	
 		}else{
+
+			document.getElementById("typeMenu").style.top="30vw";
+			document.getElementById("typeMenu").style.opacity="0";
+
+			if (encryptionType == "simple"){
+				//This sets the page to simpleCeaserEncryption
+
+				document.getElementById("simpleCeaserDecryptionMenu").style.top="250px";
+				document.getElementById("simpleCeaserDecryptionMenu").style.opacity="1";
+				
+				currentPage = "simpleCeaserDecryption";
+
+			
+			}else{
+				//This sets the page to keywordEncryptionMenu
+			
+				currentPage = "keywordDecryptionMenu";
+				
+			
+			
+			}
+
+
 		
 		
 		}
@@ -85,10 +108,16 @@ function selectType() {
 
 //Function for Simple Ceaser Encryption
 function simpleCeaserMode(){
+	
 
 	//Gets the inputted data from HTML file
 	let message = document.getElementById("simpleCeaserMessage").value;
 	let offset = parseInt(document.getElementById("offsetNumber").value);
+	
+	while (offset - 26 > 0){
+		offset = offset -26;
+		
+	}
 	
 	//Validation variables
 	let offsetValid = false;
@@ -377,6 +406,25 @@ function goBack(){
 			document.getElementById("keywordInput").value = "";	
 
 	}
+
+	else if (currentPage == "simpleCeaserDecryption"){
+
+		document.getElementById("typeMenu").style.top="250px";
+		document.getElementById("typeMenu").style.opacity="1";
+
+		document.getElementById("simpleCeaserDecryptionMenu").style.top="30vw";
+		document.getElementById("simpleCeaserDecryptionMenu").style.opacity="0";
+		
+		currentPage = "typeSelectionMenu";
+		
+		document.getElementById("encryptedMessageOutput").innerHTML = "";
+		document.getElementById("decryptedMessageOutput").innerHTML = ""
+		document.getElementById("simpleCeaserEncryptedMessage").value = "";
+		document.getElementById("simpleDecryptionOffsetInput").value = "";
+
+
+	}
+	
 	
 	
 	}
@@ -384,41 +432,90 @@ function goBack(){
 	
 		const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
-		let index = "";
-
+		offset = parseInt(document.getElementById("simpleDecryptionOffsetInput").value);
 		message = document.getElementById("simpleCeaserEncryptedMessage").value;
 
-		result = "";
+		while (offset - 26 > 0){
+			offset = offset -26;
+			
+		}
+		
+		let encryptedIndex = 0;
+		let decryptedMessage = "";
+		let decryptedCharacter = "";
+		let character = "";
 
-		for (key = 0; key <alphabet.length; key ++) {
-		
-			
-		
-			for (letter in message) {
-			
-				
-				
-					index = characterPositionFinder(letter);
+		for (d in message) {
+			character = message[d];
+
+			if (character == " "){
+
+				decryptedMessage = decryptedMessage + " ";
+			}else{
+
+				if (character.toUpperCase() == character){
+
+					character = character.toLowerCase();
+
+					encryptedIndex = characterPositionFinder(character)
+
+					if (encryptedIndex-offset < 0 ){
 					
-					index = (index + key)%(alphabet.length);
-					
-					if (index < 0){
-						index = index + alphabet.length;
+						decryptedCharacter = getCharacter(0, 26 + (encryptedIndex-offset))
+					}else{
+						decryptedCharacter = getCharacter(0,encryptedIndex-offset);
 					}
-
+				
 					
-					result = result + alphabet[index];
+	
+					decryptedMessage = decryptedMessage + decryptedCharacter.toUpperCase();
+
+				}else{
+
+					character = character.toLowerCase();
+
+					encryptedIndex = characterPositionFinder(character)
 				
+					if (encryptedIndex-offset < 0 ){
+						
+						decryptedCharacter = getCharacter(0, 26 + (encryptedIndex-offset))
+					}else{
+						decryptedCharacter = getCharacter(0,encryptedIndex-offset);
+					}
+	
+					decryptedMessage = decryptedMessage + decryptedCharacter;
+
+				}
 				
+		
+
+			
 			
 			}
+	}
+	console.log(decryptedMessage);
+	document.getElementById("encryptedMessageOutput").innerHTML = message;
+	document.getElementById("decryptedMessageOutput").innerHTML = decryptedMessage;
+
 		
+	}
+
+
+	function decryptionMode(){
+
+		document.getElementById("selectionMenu").style.top="30vw";
+		document.getElementById("selectionMenu").style.opacity="0";
 		
-		}
+		document.getElementById("typeMenu").style.top="250px";
+		document.getElementById("typeMenu").style.opacity="1";
 		
+		mode = "decryption";
 		
-			console.log(result);
-		}
+		currentPage = "typeSelectionMenu";
+		
+
+
+	}
 
 
 
