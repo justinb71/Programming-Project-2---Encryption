@@ -1,8 +1,22 @@
+<!--Initialise HTML File-->
+<!DOCTYPE html>
+
+<!-- Connects the stylesheet and javascript -->
 <link rel="stylesheet" href="styles.css">
 <script src="Javascript Code.js"></script>
 
+
 <html>
-	
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Defines the Page Title -->
+		<title>Encryption Project</title>
+	</head>
+
+	<!-- Creates the selection menue div -->
 	<div id ="selectionMenu" class = "selectionMenu">
 	
 	
@@ -14,6 +28,7 @@
 	
 	</div>
 	
+	<!-- Creates the type menu div -->
 	<div id = "typeMenu" class = "typeMenu">
 	
 		<h2 id = "typeSelectionLabel" >Select Type</h2><br>
@@ -29,15 +44,12 @@
 		<input type="radio" name = "modeSelection" id = "keywordButton"></input>
 		
 		<button type = "button" id = "selectType" onClick="selectType()">Continue</button>
-		
-		
-	
+
 	</div>
 	
+	<!-- Creates the Simple Ceaser Encryption menu div -->
 	<div id = "simpleCeaserMenu" class = "simpleCeaserMenu"> 
-	
-	
-	
+
 		<h2 id = "simpleCeaserMenuLabel">Simple Ceaser</h2><br>
 		
 		<button onClick="goBack()" class = "simpleCeaserBackbutton" id = "backButton" type="button"><</button>
@@ -49,24 +61,18 @@
 		<label id = "simpleCeaserMessageLabel">Message</label>
 		
 		<input class = "simpleModeInput"  type="text" id = "simpleCeaserMessage"></input><br><br>
-		
-		
-		
+
 		<button type = "button" id = "simpleModeEnter" onClick="simpleCeaserMode()">Enter</button><br><br>
 		
 		<label >Message:</label>
 		<label id = "simpleMessageOutput" ></label><br>
+
 		<label >Encrypted:</label>
-		
 		<label id = "simpleEncryptionOutput" ></label>
-		
-		
-		
+
 	</div>
 	
-	
-	
-	
+	<!-- Creates the Keyword Encryption menu div -->
 	<div id = "keywordEncryptionMenu" class = "keywordEncryptionMenu"> 
 	
 	
@@ -76,7 +82,6 @@
 		<button onClick="goBack()" class = "simpleCeaserBackbutton" id = "backButton" type="button"><</button>
 		
 		<label id = "keywordInputLabel" >Keyword</label>
-		
 		<input class = "keywordInput"  type="text" id = "keywordInput"></input><br><br>
 		
 		<label id = "keywordMessageLabel" >Message</label>
@@ -84,32 +89,24 @@
 		
 		<button type = "button" id = "keywordEncryptionEnter" onClick="keywordEncryptionMode()">Enter</button><br><br>
 		
-		
 		<label >Message:</label>
 		<label id = "keywordMessageOutput" ></label><br>
+
 		<label >Encrypted:</label>
-		
 		<label id = "keywordEncryptedOutput" ></label>
-		
-		
+
 	</div>
 	
-	
+	<!-- Creates the Simple Ceaser Decryption menu div -->
 	<div id = "simpleCeaserDecryptionMenu" class = "simpleCeaserDecryptionMenu"> 
-	
-	
-	
+
 		<h2 id = "simpleCeaserDecryptionMenuLabel">Simple Ceaser Decryption</h2><br>
 		
 		<button onClick="goBack()" class = "simpleCeaserBackbutton" id = "backButton" type="button"><</button>
 		
-		
-		
 		<label id = "simpleCeaserMessageLabel">Message</label>
 		
 		<input class = "simpleDecryptionInput"  type="text" id = "simpleCeaserEncryptedMessage"></input><br><br>
-		
-		
 		
 		<button type = "button" id = "simpleDecryptionModeEnter" onClick="simpleCeaserDecoder()">Enter</button><br><br>
 		
@@ -121,16 +118,10 @@
 		
 		<label >Offset:</label>
 		<label id = "decryptedOffsetLabel" ></label><br>
-		
-		
-		
+
 	</div>
-		
-		
 	
-	
-	
-	
+	<!-- Creates the background objects -->
 	<ul class="background">
 	   <li></li>
 	   <li></li>
