@@ -1,8 +1,12 @@
+//Creates a global variable that stores the current mode (encrption or decryption)
 var mode = "";
 var encryptionType = "";
 
+//Creates a global variable that stores the current page the user is on
 var currentPage = "modeSelection";
 
+
+//This function sets the mode to encryption and changes the page
 function encryptionMode(){
 
 	document.getElementById("selectionMenu").style.top="30vw";
@@ -20,9 +24,11 @@ function encryptionMode(){
 	
 }
 
+//This function selects the type of encryption/decryption the user wants (Simple Ceaser or Keyword Encryption)
 function selectType() {
 
 	
+	//Detects which radio button is pressed
 	if(document.getElementById("keywordButton").checked) {
 	
 		encryptionType = "keyword";
@@ -31,9 +37,11 @@ function selectType() {
 	}
 	
 	
+	//This makes sure one button is pressed
 	if (document.getElementById("keywordButton").checked || document.getElementById("simpleButton").checked){
 		
 		document.getElementById("typeSelectionLabel").style.color = "#cfd0d3";
+		
 		
 		if (mode == "encryption"){
 	
@@ -41,13 +49,16 @@ function selectType() {
 			document.getElementById("typeMenu").style.opacity="0";
 			
 			if (encryptionType == "simple"){
-			
-			document.getElementById("simpleCeaserMenu").style.top="250px";
-			document.getElementById("simpleCeaserMenu").style.opacity="1";
-			
-			currentPage = "simpleCeaserEncryption";
+				//This sets the page to simpleCeaserEncryption
+
+				document.getElementById("simpleCeaserMenu").style.top="250px";
+				document.getElementById("simpleCeaserMenu").style.opacity="1";
+				
+				currentPage = "simpleCeaserEncryption";
+
 			
 			}else{
+				//This sets the page to keywordEncryptionMenu
 			
 				document.getElementById("keywordEncryptionMenu").style.top="250px";
 				document.getElementById("keywordEncryptionMenu").style.opacity="1";
@@ -72,14 +83,18 @@ function selectType() {
 }
 
 
-
+//Function for Simple Ceaser Encryption
 function simpleCeaserMode(){
+
+	//Gets the inputted data from HTML file
 	let message = document.getElementById("simpleCeaserMessage").value;
 	let offset = parseInt(document.getElementById("offsetNumber").value);
 	
+	//Validation variables
 	let offsetValid = false;
 	let messageValid = false;
-	
+
+	//Makes sure the input fields are not empty, if they are change corresponding text label to red
 	if (document.getElementById("offsetNumber").value.length == 0){
 	
 		offsetValid = false;
@@ -102,6 +117,8 @@ function simpleCeaserMode(){
 	}	
 	
 	if (messageValid == true && offsetValid == true) {
+
+
 			let encryptedCharacter = "";
 			let characterPosition = 0;
 			
@@ -109,52 +126,80 @@ function simpleCeaserMode(){
 			let encryptedMessage = "";
 			
 			
-			
+			//Loops through each character in the message including spaces
 			for (x = 0; x < message.length; x+=1){
 			
+				//Handles spaces
 				if (message[x] == " "){
 					encryptedMessage = encryptedMessage + " ";
 					
 				}else{
 				
-				
+					//Handles upper case characters
 					if (message[x].toUpperCase() == message[x]) {
+
+						//Gets the position of the character in the alphabet
 						characterPosition = characterPositionFinder(message[x].toLowerCase());
 						
-						encryptedCharacter = getCharacter(offset,characterPosition);
+						//Gets the encrypted character from the offset and the position of the character
+						encryptedCharacter = getCharacter(offset, characterPosition);
 						
+						//Combines the encrypted character with the whole encrypted word
 						encryptedMessage = encryptedMessage + encryptedCharacter.toUpperCase();
 					}
 					else{
 					
 						characterPosition = characterPositionFinder(message[x].toLowerCase());
 						
-						encryptedCharacter = getCharacter(offset,characterPosition);
+						
+						encryptedCharacter = getCharacter(offset, characterPosition);
 						
 						encryptedMessage = encryptedMessage + encryptedCharacter;
 					}
 				
 				
-			}
+				}
 			
 			}
 			
-			
+
+			//Outputs the results to the HTML page
 			document.getElementById("simpleMessageOutput").innerHTML = message;
 			document.getElementById("simpleEncryptionOutput").innerHTML = encryptedMessage;
-		}
-		
 	}
+		
+}
 
 
+//This function returns the position of the character in the alphabet
+function characterPositionFinder(character){
 
+	//Defines the alphabet
+	const alphabet = "abcdefghijklmnopqrstuvwxyz";
+	
+	//Linear search through the alphabet until the characters match
+	for (i=0;i<26;i++) {
+	
+		if (alphabet[i] == character) {
+		
+			//Returns the position
+			return i 
+		}
+
+	}
+}
+
+
+//This function returns a character from combining the offset and character position
 function getCharacter(offset,charPosition) {
 
-	let alphabet = "abcdefghijklmnopqrstuvwxyz";
+	//Defines the alphabet
+	const alphabet = "abcdefghijklmnopqrstuvwxyz";
 	
+	//Checks if the inputted character position + offset is over 26
 	if ((charPosition + offset) < 26) {
 	
-		
+		//returns the corresponding character 
 		return alphabet[(charPosition + offset)];
 	
 	}else{
@@ -165,34 +210,21 @@ function getCharacter(offset,charPosition) {
 	}
 }
 
-function characterPositionFinder(character){
-
-	let alphabet = "abcdefghijklmnopqrstuvwxyz";
-	
-	
-	for (i=0;i<26;i++) {
-	
-		if (alphabet[i] == character) {
-		
-			return i 
-		}
-
-	}
-}
 
 
-
+//Function for Keyword Encryption
 function keywordEncryptionMode(){
 
+	//Validation variables
 	let keywordValid = false;
 	let messageValid = false;
 	
 	
-
+	//Gets the users inputs
 	let keyword = document.getElementById("keywordInput").value;
-	
 	let message = document.getElementById("keywordMessageInput").value
-	
+
+	//Makes sure the input fields are not empty, if they are change corresponding text label to red
 	if (keyword.length == 0 ){
 		keywordValid = false;
 		document.getElementById("keywordInputLabel").style.color="#e02f1e";
@@ -215,33 +247,45 @@ function keywordEncryptionMode(){
 	
 	
 	if (messageValid == true && keywordValid) {
+
+		//Initialises Variables
 		let encryptedMessage = "";
 		let keywordIndex = []
-		
 		let currentKeywordIndex = 0;
 		
+		//This loops thorugh all the charcters in the keyword and saves the corresponding index
 		for (y = 0; y < keyword.length; y++) {
 		
 			let index = characterPositionFinder(keyword[y].toLowerCase());
+			//Appends the index to the array
 			keywordIndex.push(index+1);
 			
 		}
 		
-		console.log(keywordIndex);
+		//Loops through each character in the message
 		for (z=0; z < message.length; z++) {
 		
+			//Handles spaces
 			if (message[z] == " "){
 				encryptedMessage = encryptedMessage + " ";
 				
 				currentKeywordIndex --;
 				
 			}else{ 
+
+				//Handles Upper Case
 				if (message[z].toUpperCase() == message[z]) {
+
+					//Gets the position of the character
 					currentCharIndex = characterPositionFinder(message[z].toLowerCase());
 					
-					
+					//Combines the current keyword index with the index of current character
 					encryptedIndex = currentCharIndex + keywordIndex[currentKeywordIndex];
+
+					//Gets the character at that encrypted index
 					encryptedCharacter = getCharacter(0,encryptedIndex);
+
+					//Appends the encrypeted character to the encrypted word
 					encryptedMessage = encryptedMessage + encryptedCharacter.toUpperCase();
 					
 				}else{
@@ -256,7 +300,7 @@ function keywordEncryptionMode(){
 			}
 			
 			
-			
+			//Increments the keyword index
 			if (currentKeywordIndex == (keywordIndex.length-1)){
 			
 				currentKeywordIndex=0;
@@ -266,6 +310,7 @@ function keywordEncryptionMode(){
 			}
 		}
 		
+		//Outputs the results to the HTML page
 		document.getElementById("keywordMessageOutput").innerHTML = message;
 		document.getElementById("keywordEncryptedOutput").innerHTML = encryptedMessage;
 
@@ -281,10 +326,10 @@ function keywordEncryptionMode(){
 
 
 
-
+//This function allows the user to return to the previous page 
 function goBack(){
 
-
+	//If page is the type selection page, go to the mode selection page
 	if (currentPage == "typeSelectionMenu"){
 	
 		document.getElementById("selectionMenu").style.top="250px";
@@ -295,7 +340,10 @@ function goBack(){
 		
 		currentPage = "modeSelection";
 
-	}else if (currentPage == "simpleCeaserEncryption") {
+	}
+
+	//If page is the simple Ceaser Encryption page, go to the type selection page
+	else if (currentPage == "simpleCeaserEncryption") {
 	
 	
 			document.getElementById("typeMenu").style.top="250px";
@@ -310,9 +358,11 @@ function goBack(){
 			document.getElementById("simpleEncryptionOutput").innerHTML = ""
 			document.getElementById("simpleCeaserMessage").value = "";
 			document.getElementById("offsetNumber").value = "";
-	
-	
-	} else if (currentPage=="keywordEncryptionMenu") {
+
+	} 
+
+	//If page is the Keyword Encryption page, go to the type selection page
+	else if (currentPage=="keywordEncryptionMenu") {
 	
 			document.getElementById("typeMenu").style.top="250px";
 			document.getElementById("typeMenu").style.opacity="1";
@@ -324,10 +374,7 @@ function goBack(){
 			document.getElementById("keywordMessageOutput").innerHTML = "";
 			document.getElementById("keywordEncryptedOutput").innerHTML = ""
 			document.getElementById("keywordMessageInput").value = "";
-			document.getElementById("keywordInput").value = "";
-			
-			
-			
+			document.getElementById("keywordInput").value = "";	
 
 	}
 	
@@ -335,10 +382,14 @@ function goBack(){
 	}
 	function simpleCeaserDecoder(){
 	
-		alphabet = "abcdefghijklmnopqrstuvwxyz";
+		const alphabet = "abcdefghijklmnopqrstuvwxyz";
+
 		let index = "";
+
 		message = document.getElementById("simpleCeaserEncryptedMessage").value;
+
 		result = "";
+
 		for (key = 0; key <alphabet.length; key ++) {
 		
 			
