@@ -4,6 +4,7 @@
 <!-- Connects the stylesheet and javascript -->
 <link rel="stylesheet" href="styles.css">
 <script src="Javascript Code.js"></script>
+<link href="stylesheet" rel="stylesheet.scss" >
 
 
 <html>
@@ -62,7 +63,7 @@
 		
 		<input class = "simpleModeInput"  type="text" id = "simpleCeaserMessage"></input><br><br>
 
-		<button class = "simpleModeEnter" type = "button" id = "simpleModeEnter" onClick="simpleCeaserMode()">Enter</button><br><br>
+		<button class = "enterButton" type = "button" id = "simpleModeEnter" onClick="simpleCeaserMode()">Enter</button><br><br>
 		
 		<label >Message:</label>
 		<label id = "simpleMessageOutput" ></label><br>
@@ -87,7 +88,7 @@
 		<label id = "keywordMessageLabel" >Message</label>
 		<input class = "keywordInput"  type="text" id = "keywordMessageInput"></input><br><br>
 		
-		<button type = "button" id = "keywordEncryptionEnter" onClick="keywordEncryptionMode()">Enter</button><br><br>
+		<button type = "button" class = "enterButton" id = "keywordEncryptionEnter" onClick="keywordEncryptionMode()">Enter</button><br><br>
 		
 		<label >Message:</label>
 		<label id = "keywordMessageOutput" ></label><br>
@@ -110,7 +111,7 @@
 		<label id = "simpleCeaserDecryptionMessageLabel">Message</label>
 		<input class = "simpleDecryptionInput"  type="text" id = "simpleCeaserEncryptedMessage"></input><br><br>
 
-		<button class = "simpleModeEnter" type = "button" id = "simpleDecryptionModeEnter" onClick="simpleCeaserDecyption()">Enter</button><br><br>
+		<button class = "enterButton" type = "button" id = "simpleDecryptionModeEnter" onClick="simpleCeaserDecyption()">Enter</button><br><br>
 		
 		<label >Encrypted:</label>
 		<label id = "encryptedMessageOutput" ></label><br>
@@ -122,6 +123,30 @@
 		
 
 	</div>
+
+	<div id = "keywordDecryptionMenu" class = "keywordDecryptionMenu"> 
+	
+	
+	
+		<h2 id = "keywordDecryptionMenuLabel">Keyword Decryption</h2><br>
+		
+		<button onClick="goBack()" class = "backButton" id = "backButton" type="button"><</button>
+		
+		<label id = "keywordInputLabelDecryption" >Keyword</label>
+		<input class = "keywordInput"  type="text" id = "decryptionKeywordInput"></input><br><br>
+		
+		<label id = "keywordMessageLabel" >Message</label>
+		<input class = "keywordInput"  type="text" id = "decryptionKeywordMessageInput"></input><br><br>
+		
+		<button type = "button" class = "enterButton" id = "decryptionKeywordEncryptionEnter" onClick="keywordDecryptionMode()">Enter</button><br><br>
+		
+		<label >Encrypted:</label>
+		<label id = "encryptedKeywordOutput" ></label><br>
+
+		<label >Decrypted:</label>
+		<label id = "decryptedKeywordOutput" ></label>
+
+	</div> 
 	
 	<!-- Creates the background objects -->
 	<ul class="background">

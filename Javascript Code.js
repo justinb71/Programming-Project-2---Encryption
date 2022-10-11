@@ -325,6 +325,13 @@ function simpleCeaserDecyption(){
 	
 }
 
+function keywordDecryptionMode() {
+	let keyword = document.getElementById("decryptionKeywordInput").value;
+	let message = document.getElementById("decryptionKeywordMessageInput").value
+
+
+
+}
 
 //Function for Keyword Encryption
 function keywordEncryptionMode(){
@@ -430,6 +437,7 @@ function keywordEncryptionMode(){
 
 	}
 }
+
 
 
 //This function returns the position of the character in the alphabet
