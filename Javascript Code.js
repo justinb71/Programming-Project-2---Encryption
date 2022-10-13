@@ -1,3 +1,4 @@
+
 //Creates a global variable that stores the current mode (encrption or decryption)
 var mode = "";
 var encryptionType = "";
@@ -97,6 +98,9 @@ function selectType() {
 			
 			}else{
 				//This sets the page to keywordEncryptionMenu
+
+				document.getElementById("keywordDecryptionMenu").style.top="250px";
+				document.getElementById("keywordDecryptionMenu").style.opacity="1";
 			
 				currentPage = "keywordDecryptionMenu";
 				
@@ -550,6 +554,19 @@ function goBack(){
 		document.getElementById("simpleCeaserEncryptedMessage").value = "";
 		document.getElementById("simpleDecryptionOffsetInput").value = "";
 				
+		currentPage = "typeSelectionMenu";
+
+
+	}
+
+	else if (currentPage == "keywordDecryptionMenu") {
+
+		document.getElementById("typeMenu").style.top="250px";
+		document.getElementById("typeMenu").style.opacity="1";
+
+		document.getElementById("keywordDecryptionMenu").style.top="30vw";
+		document.getElementById("keywordDecryptionMenu").style.opacity="0";
+		
 		currentPage = "typeSelectionMenu";
 
 
