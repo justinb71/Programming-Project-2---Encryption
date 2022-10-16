@@ -1,14 +1,14 @@
 
 html{
 	font-family: helvetica;
-	
-	
 	background: linear-gradient(87deg,#121214, #2c2c30);
 	min-width:300px;
+	overflow: hidden; 
 	
 
 }
 
+/* CSS for the menu titles */
 h1 {
 	position: absolute;
 	left:57px;
@@ -54,7 +54,7 @@ transition: 0.1s
 
 }
 
-
+/* General CSS for all divs */
 
 div {
 	z-index: 1;
@@ -80,14 +80,10 @@ div {
 
 
 
-	
-	
-
-
 }
 
 
-
+/* CSS for the menu divs */
 .selectionMenu{
 	
 	left: 50vw;
@@ -97,9 +93,8 @@ div {
 	transition:1s;
 	opacity:0;
 	border-radius: 50px ;
-	
-
 }
+
 
 .typeMenu{
 
@@ -108,7 +103,6 @@ div {
 	top:30vw;
 	opacity:0;
 	transition:1s;
-	
 }
 
 
@@ -119,11 +113,7 @@ div {
 	opacity:0;
 	top:30vw;
 	transition:1s;
-
-
 }
-
-
 
 
 .keywordEncryptionMenu{
@@ -133,9 +123,8 @@ div {
 	opacity:0;
 	top:30vw;
 	transition:1s;
-
-
 }
+
 
 .simpleCeasarDecryptionMenu{
 	width: 255px;
@@ -144,8 +133,6 @@ div {
 	opacity:0;
 	top:30vw;
 	transition:1s;
-
-
 }
 
 .keywordDecryptionMenu{
@@ -155,19 +142,12 @@ div {
 	opacity:0;
 	top:30vw;
 	transition:1s;
-
-
 }
 
 
 
-
-
-
-/*General CSS for both buttons*/
+/*General CSS for all buttons*/
 button {	
-	
-	
 	color: #d7d8db;
 	width:125px;
 	height:35px;
@@ -176,30 +156,15 @@ button {
 	border: none;
 	background-color: #202124;
 	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.9);
-	
-	
-
 }
 
-/*General CSS for both buttons when hovered over*/
 
 button:hover {
 
 	transition: .3s;
 	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-	
-
-	
-
 }	
-	button:active {
-	transition: .1s;
-	
-	background-color: #4f5056;
-}
 
-
-/*General CSS for both buttons when pressed*/
 
 button:active {
 	transition: .1s;
@@ -208,53 +173,43 @@ button:active {
 }
 
 
+/* CSS for menu buttons */
 #encryptionButton {
 
 	position: absolute;
 	left: 25px;
 	top: 100px;
 	font-size: 15px;
-	
-	
-	
-
 }
 
 
 #simpleModeEnter{
-
 	width:325px;
-
 }
-
 
 
 #simpleDecryptionModeEnter{
-
 	width:325px;
 }
 
-#keywordEncryptionEnter{
 
+#keywordEncryptionEnter{
 	width:345px;
 }
+
 
 #decryptionKeywordEncryptionEnter{
-
 	width:345px;
-
 }
-#decryptionButton {
 
+
+#decryptionButton {
 	position: absolute;
 	left: 215px;
 	top: 100px;
-	
-	font-size: 14.75px;
-	
-	
-	
+	font-size: 14.75px;	
 }
+
 
 #selectType {
 	position: absolute;
@@ -265,65 +220,25 @@ button:active {
 }
 
 
-
-input[type='radio']{
-	left: 270px;
-	height: 0px;
-	position: absolute;
-
-	}
-
-	input[type='radio']:after {
-
-
-	width: 15px;
-	height: 15px;
-	border-radius: 15px;
-
-
-	background-color: #262629;
-	content: '';
-	display: inline-block;
-	visibility: visible;
-	border: 2px solid white;
-}
-
-input[type='radio']:checked:after {
-	transition: .1s;
-	width: 15px;
-	height: 15px;
-	border-radius: 15px;
-	
-	background-color: #d7d8db;
-	content: '';
-	display: inline-block;
-	visibility: visible;
-	border: 2px solid white;
+#backButton{
+	position: absolute;	
+	padding-left:3px;
+	width:35px;
+	height:35px;
+	top:5px;
+	left:5px;
+	font-size:25px;
+	box-shadow: 0 0px 0px 0 rgba(0,0,0,0.0), 0 0px 0px 0 rgba(0,0,0,0.0);
+	background: #1f1f21;
 }
 
 
-
-.simpleModeInput{
-		
-	color: white;
-	position: absolute;
-	left: 175px;
-	
-	
-	border-radius: 12px;
-	background-color: #232324;
-	transition: .1s;
-	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.10);
-	
+#backButton:hover{
+	background: #262629;
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
-/*CSS for when the input fields are in use*/
-.simpleModeInput:focus {
 
-	background-color: #323235;
-	left: 180px;
-	
-}
 
 /*Removes the arrows in the number input box*/
 
@@ -332,135 +247,138 @@ input[type=number]::-webkit-outer-spin-button {
 	opacity: 0;
 }
 
-.simpleDecryptionInput{
-		
+
+/* CSS for radio input fields */
+input[type='radio']{
+	left: 270px;
+	height: 0px;
+	position: absolute;
+
+}
+
+
+input[type='radio']:after {
+	width: 15px;
+	height: 15px;
+	border-radius: 15px;
+	background-color: #262629;
+	content: '';
+	display: inline-block;
+	visibility: visible;
+	border: 2px solid white;
+}
+
+
+input[type='radio']:checked:after {
+	transition: .1s;
+	width: 15px;
+	height: 15px;
+	border-radius: 15px;
+	background-color: #d7d8db;
+	content: '';
+	display: inline-block;
+	visibility: visible;
+	border: 2px solid white;
+}
+
+/* CSS for input fields */
+.simpleModeInput{
+	color: white;
+	position: absolute;
+	left: 175px;
+	border-radius: 12px;
+	background-color: #232324;
+	transition: .1s;
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.10);
+}
+
+
+.simpleModeInput:focus {
+
+	background-color: #323235;
+	left: 180px;
+	
+}
+
+
+.simpleDecryptionInput{		
 	color: white;
 	position: absolute;
 	left: 120px;
-	
-	
 	border-radius: 12px;
 	background-color: #232324;
 	transition: .1s;
 	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.10);
-	
 }
 
-/*CSS for when the input fields are in use*/
-.simpleDecryptionInput:focus {
 
+.simpleDecryptionInput:focus {
 	background-color: #323235;
 	left: 125px;
-	
 }
 
 
-
-
-
-.keywordInput{
-		
+.keywordInput{		
 	color: white;
 	position: absolute;
 	left: 125px;
-	
-	
 	border-radius: 12px;
 	background-color: #232324;
 	transition: .1s;
 	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.10);
-	
 }
+
 
 .keywordInput:focus{
 	background-color: #323235;
 	left: 130px;
-	
 }
 
 
 
-
-
+/* CSS for output boxes */
 #simpleMessageOutput{
 	position: relative;
-	
 	left: 20px;
 }
 
+
 #simpleEncryptionOutput{
-	position: relative;
-	
+	position: relative;	
 	left: 11px;
 }
 
 
 #keywordMessageOutput{
 	position: relative;
-	
 	left: 21px;
 }
 
+
 #keywordEncryptedOutput{
 	position: relative;
-	
 	left: 15px;
 }
 
-#backButton{
-	position: absolute;
-	
-	padding-left:3px;
-	width:35px;
-	height:35px;
-	
-	top:5px;
-	left:5px;
-	font-size:25px;
-	
-	box-shadow: 0 0px 0px 0 rgba(0,0,0,0.0), 0 0px 0px 0 rgba(0,0,0,0.0);
-	background: #1f1f21;
-	
-	
 
-
-}
-
-#backButton:hover{
-	background: #262629;
-	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-}
-
-
-html{
-	font-family: helvetica;
-	
-	
-	background: linear-gradient(87deg,#0b0b0c, #121214);
-	min-width:300px;
-	overflow: hidden; 
-
-}
-
+/* CSS for the background */
 .backgroundAccentRight{
     height: 101vh;
     width:100vw;
     background-color: #343435;
     clip-path: polygon(100% 69%, 0% 100%, 100% 100%);
-   
-
 }
+
 
 .backgroundAccent{
 	z-index: -1;
-
-
 }
+
+
 .Background{
 	z-index: -1;
     height: 101vh;
     width:100vw;
     filter: drop-shadow(-63px -1px 53px #29292b);
-
 }
 
