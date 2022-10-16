@@ -8,6 +8,7 @@
 
 
 <html>
+	
 
 	<head>
 		<meta charset="UTF-8">
@@ -36,7 +37,7 @@
 		
 		<button onClick="goBack()"  id = "backButton" type="button"><</button>
 		
-		<label id = "simpleCeaserTypeLabel">Simple Caesar Cipher</label>
+		<label id = "simpleCeasarTypeLabel">Simple Caesar Cipher</label>
 		
 		<input type="radio" name="modeSelection" id = "simpleButton"></input><br>
 		
@@ -48,22 +49,22 @@
 
 	</div>
 	
-	<!-- Creates the Simple Ceaser Encryption menu div -->
-	<div id = "simpleCeaserMenu" class = "simpleCeaserMenu"> 
+	<!-- Creates the Simple Ceasar Encryption menu div -->
+	<div id = "simpleCeasarMenu" class = "simpleCeasarMenu"> 
 
-		<h2 id = "simpleCeaserMenuLabel">Simple Ceaser</h2><br>
+		<h2 id = "simpleCeasarMenuLabel">Simple Ceasar Encryption </h2><br>
 		
 		<button onClick="goBack()" class = "backButton" id = "backButton" type="button"><</button>
 		
-		<label id = "simpleCeaserOffsetNumberLabel" >Offset Number</label>
+		<label id = "simpleCeasarOffsetNumberLabel" >Offset Number</label>
 		
 		<input class = "simpleModeInput" type="number"  id = "offsetNumber"></input><br>
 		
-		<label id = "simpleCeaserMessageLabel">Message</label>
+		<label id = "simpleCeasarMessageLabel">Message</label>
 		
-		<input class = "simpleModeInput"  type="text" id = "simpleCeaserMessage"></input><br><br>
+		<input class = "simpleModeInput"  type="text" id = "simpleCeasarMessage"></input><br><br>
 
-		<button class = "enterButton" type = "button" id = "simpleModeEnter" onClick="simpleCeaserMode()">Enter</button><br><br>
+		<button class = "enterButton" type = "button" id = "simpleModeEnter" onClick="simpleCeasarMode()">Enter</button><br><br>
 		
 		<label >Message:</label>
 		<label id = "simpleMessageOutput" ></label><br>
@@ -98,20 +99,20 @@
 
 	</div>
 	
-	<!-- Creates the Simple Ceaser Decryption menu div -->
-	<div id = "simpleCeaserDecryptionMenu" class = "simpleCeaserDecryptionMenu"> 
+	<!-- Creates the Simple Ceasar Decryption menu div -->
+	<div  id = "simpleCeasarDecryptionMenu" class = "simpleCeasarDecryptionMenu"> 
 
-		<h2 id = "simpleCeaserDecryptionMenuLabel">Simple Ceaser Decryption</h2><br>
+		<h2 id = "simpleCeasarDecryptionMenuLabel">Simple Ceasar Decryption</h2><br>
 		
 		<button onClick="goBack()" class = "backButton" id = "backButton" type="button"><</button>
 		
 		<label id = "simlpeDecryptionOffsetLabel" >Offset:</label>
 		<input class = "simpleDecryptionInput"  type="number" id = "simpleDecryptionOffsetInput"></input><br>
 
-		<label id = "simpleCeaserDecryptionMessageLabel">Message</label>
-		<input class = "simpleDecryptionInput"  type="text" id = "simpleCeaserEncryptedMessage"></input><br><br>
+		<label id = "simpleCeasarDecryptionMessageLabel">Message</label>
+		<input class = "simpleDecryptionInput"  type="text" id = "simpleCeasarEncryptedMessage"></input><br><br>
 
-		<button class = "enterButton" type = "button" id = "simpleDecryptionModeEnter" onClick="simpleCeaserDecyption()">Enter</button><br><br>
+		<button class = "enterButton" type = "button" id = "simpleDecryptionModeEnter" onClick="simpleCeasarDecyption()">Enter</button><br><br>
 		
 		<label >Encrypted:</label>
 		<label id = "encryptedMessageOutput" ></label><br>
@@ -124,7 +125,7 @@
 
 	</div>
 
-	<div id = "keywordDecryptionMenu" class = "keywordDecryptionMenu"> 
+	<div  id = "keywordDecryptionMenu" class = "keywordDecryptionMenu"> 
 	
 	
 	
@@ -135,22 +136,29 @@
 		<label id = "keywordInputLabelDecryption" >Keyword</label>
 		<input class = "keywordInput"  type="text" id = "decryptionKeywordInput"></input><br><br>
 		
-		<label id = "keywordMessageLabel" >Message</label>
+		<label id = "keywordDecryptionMessageLabel" >Message</label>
 		<input class = "keywordInput"  type="text" id = "decryptionKeywordMessageInput"></input><br><br>
 		
 		<button type = "button" class = "enterButton" id = "decryptionKeywordEncryptionEnter" onClick="keywordDecryptionMode()">Enter</button><br><br>
 		
 		<label >Encrypted:</label>
-		<label id = "encryptedKeywordOutput" ></label><br>
+		<label id = "encryptedKeywordOutput"></label><br>
 
 		<label >Decrypted:</label>
-		<label id = "decryptedKeywordOutput" ></label>
+		<label id = "decryptedKeywordOutput"></label>
 
 	</div> 
 	
-	
+	<section class = "Background">
+
+        <section class="backgroundAccent">
+            <section class = "backgroundAccentRight"></section>
+			
+        </section>
+
+        
+    </section>
 
 
 </html>
-
 

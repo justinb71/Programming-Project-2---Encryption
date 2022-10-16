@@ -1,4 +1,13 @@
 
+function delay(time) {
+	return new Promise(resolve => setTimeout(resolve, time));
+}
+delay(10).then(() => document.getElementById("selectionMenu").style.top="250px" );
+delay(10).then(() => document.getElementById("selectionMenu").style.left="40vw" );
+delay(10).then(() =>document.getElementById("selectionMenu").style.opacity="1");
+
+
+
 //Creates a global variable that stores the current mode (encrption or decryption)
 var mode = "";
 var encryptionType = "";
@@ -38,7 +47,7 @@ function decryptionMode(){
 
 }
 
-//This function selects the type of encryption/decryption the user wants (Simple Ceaser or Keyword Encryption)
+//This function selects the type of encryption/decryption the user wants (Simple Ceasar or Keyword Encryption)
 function selectType() {
 
 	
@@ -63,12 +72,12 @@ function selectType() {
 			document.getElementById("typeMenu").style.opacity="0";
 			
 			if (encryptionType == "simple"){
-				//This sets the page to simpleCeaserEncryption
+				//This sets the page to simpleCeasarEncryption
 
-				document.getElementById("simpleCeaserMenu").style.top="250px";
-				document.getElementById("simpleCeaserMenu").style.opacity="1";
+				document.getElementById("simpleCeasarMenu").style.top="250px";
+				document.getElementById("simpleCeasarMenu").style.opacity="1";
 				
-				currentPage = "simpleCeaserEncryption";
+				currentPage = "simpleCeasarEncryption";
 
 			
 			}else{
@@ -88,12 +97,12 @@ function selectType() {
 			document.getElementById("typeMenu").style.opacity="0";
 
 			if (encryptionType == "simple"){
-				//This sets the page to simpleCeaserEncryption
+				//This sets the page to simpleCeasarEncryption
 
-				document.getElementById("simpleCeaserDecryptionMenu").style.top="250px";
-				document.getElementById("simpleCeaserDecryptionMenu").style.opacity="1";
+				document.getElementById("simpleCeasarDecryptionMenu").style.top="250px";
+				document.getElementById("simpleCeasarDecryptionMenu").style.opacity="1";
 				
-				currentPage = "simpleCeaserDecryption";
+				currentPage = "simpleCeasarDecryption";
 
 			
 			}else{
@@ -123,12 +132,12 @@ function selectType() {
 }
 
 
-//Function for Simple Ceaser Encryption
-function simpleCeaserMode(){
+//Function for Simple Ceasar Encryption
+function simpleCeasarMode(){
 	
 
 	//Gets the inputted data from HTML file
-	let message = document.getElementById("simpleCeaserMessage").value;
+	let message = document.getElementById("simpleCeasarMessage").value;
 	let offset = parseInt(document.getElementById("offsetNumber").value);
 	
 	
@@ -141,22 +150,23 @@ function simpleCeaserMode(){
 	if (document.getElementById("offsetNumber").value.length == 0){
 	
 		offsetValid = false;
-		document.getElementById("simpleCeaserOffsetNumberLabel").style.color = "#e02f1e";
+		document.getElementById("simpleCeasarOffsetNumberLabel").style.color = "#e02f1e";
 		
 	}else{
 		offsetValid = true;
 	
 	
-		document.getElementById("simpleCeaserOffsetNumberLabel").style.color = "#cfd0d3";
+		document.getElementById("simpleCeasarOffsetNumberLabel").style.color = "#cfd0d3";
 	}	
 	if (message.length == 0){
 	
-		document.getElementById("simpleCeaserMessageLabel").style.color = "#e02f1e";
+		document.getElementById("simpleCeasarMessageLabel").style.color = "#e02f1e";
 		messageValid = false;
 	}else{
 		messageValid = true;
 	
-		document.getElementById("simpleCeaserMessageLabel").style.color = "#cfd0d3";
+		document.getElementById("simpleCeasarMessageLabel").style.color = "#cfd0d3";
+		
 	}	
 	
 	if (messageValid == true && offsetValid == true) {
@@ -218,12 +228,12 @@ function simpleCeaserMode(){
 }
 
 
-// Function for Simple Ceaser Decryption
-function simpleCeaserDecyption(){
+// Function for Simple Ceasar Decryption
+function simpleCeasarDecyption(){
 
 	//Gets the inputted data from HTML file
 	offset = parseInt(document.getElementById("simpleDecryptionOffsetInput").value);
-	message = document.getElementById("simpleCeaserEncryptedMessage").value;
+	message = document.getElementById("simpleCeasarEncryptedMessage").value;
 
 	//Validation variables
 	let offsetValid = false;
@@ -232,12 +242,12 @@ function simpleCeaserDecyption(){
 	//Makes sure the input fields are not empty, if they are change corresponding text label to red
 	if (message.trim() == ""){
 
-		document.getElementById("simpleCeaserDecryptionMessageLabel").style.color = "#e02f1e";
+		document.getElementById("simpleCeasarDecryptionMessageLabel").style.color = "#e02f1e";
 		messageValid = false;
 
 	}else{
 
-		document.getElementById("simpleCeaserDecryptionMessageLabel").style.color = "#cfd0d3";
+		document.getElementById("simpleCeasarDecryptionMessageLabel").style.color = "#cfd0d3";
 		messageValid = true;
 	}
 
@@ -249,6 +259,7 @@ function simpleCeaserDecyption(){
 	}else{
 
 		document.getElementById("simlpeDecryptionOffsetLabel").style.color = "#cfd0d3";
+		
 		offsetValid = true;
 	}
 
@@ -330,8 +341,122 @@ function simpleCeaserDecyption(){
 }
 
 function keywordDecryptionMode() {
+	let keywordValid = false;
+	let messageValid = false;
+	
+	
+	//Gets the users inputs
 	let keyword = document.getElementById("decryptionKeywordInput").value;
 	let message = document.getElementById("decryptionKeywordMessageInput").value
+
+	//Makes sure the input fields are not empty, if they are change corresponding text label to red
+	if (keyword.length == 0 ){
+		keywordValid = false;
+		document.getElementById("keywordInputLabelDecryption").style.color="#e02f1e";
+	
+	}else{
+		keywordValid = true;
+		document.getElementById("keywordInputLabelDecryption").style.color="#cfd0d3";
+	
+	}
+	
+	if (message.length == 0 ){
+		messageValid = false;
+		document.getElementById("keywordDecryptionMessageLabel").style.color="#e02f1e";
+	
+	}else{
+		messageValid = true;
+		document.getElementById("keywordDecryptionMessageLabel").style.color="#cfd0d3";
+		
+	
+	}
+
+	if (messageValid == true && keywordValid) {
+		let decryptedMessage = "";
+		let keywordIndex = []
+		let currentKeywordIndex = 0;
+		let decryptedIndex = 0;
+
+		for (p in keyword){
+
+			let index  = characterPositionFinder(keyword[p].toLowerCase())+1;
+
+			keywordIndex.push(index);
+		}
+
+		for (t in message){
+
+			//Handles spaces
+			if (message[t] == " "){
+				decryptedMessage = decryptedMessage + " ";
+				
+				currentKeywordIndex --;
+				
+			}else{ 
+
+				if (message[t].toUpperCase() == message[t]) {
+					//Gets the position of the character
+				currentCharIndex = characterPositionFinder(message[t].toLowerCase());
+									
+				//Combines the current keyword index with the index of current character
+				decryptedIndex = parseInt(currentCharIndex - keywordIndex[currentKeywordIndex]);
+				
+
+				if (currentCharIndex - keywordIndex[currentKeywordIndex] < 0 ){
+							
+					decryptedCharacter = getCharacter(0, 26 + decryptedIndex)
+				}else{
+					decryptedCharacter = getCharacter(0, decryptedIndex);
+				}
+
+				decryptedMessage = decryptedMessage + decryptedCharacter.toUpperCase();
+
+				}else{
+
+					//Gets the position of the character
+				currentCharIndex = characterPositionFinder(message[t].toLowerCase());
+									
+				//Combines the current keyword index with the index of current character
+				decryptedIndex = parseInt(currentCharIndex - keywordIndex[currentKeywordIndex]);
+				
+				//Gets the character at that encrypted index
+				
+				
+				//Appends the encrypeted character to the encrypted word
+				
+
+				if (currentCharIndex - keywordIndex[currentKeywordIndex] < 0 ){
+							
+					decryptedCharacter = getCharacter(0, 26 + decryptedIndex)
+				}else{
+					decryptedCharacter = getCharacter(0, decryptedIndex);
+				}
+
+				decryptedMessage = decryptedMessage + decryptedCharacter;
+				}
+				
+
+				
+			}
+
+			if (currentKeywordIndex == (keywordIndex.length-1)){
+				
+				currentKeywordIndex=0;
+			}else{
+			
+				currentKeywordIndex ++;
+			}
+
+			document.getElementById("encryptedKeywordOutput").innerHTML = message;
+			document.getElementById("decryptedKeywordOutput").innerHTML = decryptedMessage;
+		}
+
+
+	}
+	
+	//Outputs the results to the HTML page
+	
+	
 
 
 
@@ -381,9 +506,9 @@ function keywordEncryptionMode(){
 		//This loops thorugh all the charcters in the keyword and saves the corresponding index
 		for (y = 0; y < keyword.length; y++) {
 		
-			let index = characterPositionFinder(keyword[y].toLowerCase());
+			let index = characterPositionFinder(keyword[y].toLowerCase()) + 1;
 			//Appends the index to the array
-			keywordIndex.push(index+1);
+			keywordIndex.push(index);
 			
 		}
 		
@@ -503,20 +628,22 @@ function goBack(){
 
 	}
 
-	//If page is the simple Ceaser Encryption page, go to the type selection page
-	else if (currentPage == "simpleCeaserEncryption") {
+	//If page is the simple Ceasar Encryption page, go to the type selection page
+	else if (currentPage == "simpleCeasarEncryption") {
 	
 
 		document.getElementById("typeMenu").style.top="250px";
 		document.getElementById("typeMenu").style.opacity="1";
 		
-		document.getElementById("simpleCeaserMenu").style.top="30vw";
-		document.getElementById("simpleCeaserMenu").style.opacity="0"
+		document.getElementById("simpleCeasarMenu").style.top="30vw";
+		document.getElementById("simpleCeasarMenu").style.opacity="0"
 		
 		document.getElementById("simpleMessageOutput").innerHTML = "";
 		document.getElementById("simpleEncryptionOutput").innerHTML = ""
-		document.getElementById("simpleCeaserMessage").value = "";
+		document.getElementById("simpleCeasarMessage").value = "";
 		document.getElementById("offsetNumber").value = "";
+		document.getElementById("simpleCeasarMessageLabel").style.color = "#cfd0d3";
+		document.getElementById("simpleCeasarOffsetNumberLabel").style.color = "#cfd0d3";
 
 		currentPage = "typeSelectionMenu"
 
@@ -535,24 +662,29 @@ function goBack(){
 		document.getElementById("keywordEncryptedOutput").innerHTML = ""
 		document.getElementById("keywordMessageInput").value = "";
 		document.getElementById("keywordInput").value = "";	
+		document.getElementById("keywordMessageLabel").style.color="#cfd0d3";
+		document.getElementById("keywordInputLabel").style.color="#cfd0d3";
+		
 
 		currentPage = "typeSelectionMenu";
 
 	}
 
-	//If page is the Simple Ceaser Decryption page, go to the type selection page
-	else if (currentPage == "simpleCeaserDecryption") {
+	//If page is the Simple Ceasar Decryption page, go to the type selection page
+	else if (currentPage == "simpleCeasarDecryption") {
 
 		document.getElementById("typeMenu").style.top="250px";
 		document.getElementById("typeMenu").style.opacity="1";
 
-		document.getElementById("simpleCeaserDecryptionMenu").style.top="30vw";
-		document.getElementById("simpleCeaserDecryptionMenu").style.opacity="0";
+		document.getElementById("simpleCeasarDecryptionMenu").style.top="30vw";
+		document.getElementById("simpleCeasarDecryptionMenu").style.opacity="0";
 
 		document.getElementById("encryptedMessageOutput").innerHTML = "";
 		document.getElementById("decryptedMessageOutput").innerHTML = ""
-		document.getElementById("simpleCeaserEncryptedMessage").value = "";
+		document.getElementById("simpleCeasarEncryptedMessage").value = "";
 		document.getElementById("simpleDecryptionOffsetInput").value = "";
+		document.getElementById("simlpeDecryptionOffsetLabel").style.color = "#cfd0d3";
+		document.getElementById("simpleCeasarDecryptionMessageLabel").style.color = "#cfd0d3";
 				
 		currentPage = "typeSelectionMenu";
 
@@ -567,7 +699,16 @@ function goBack(){
 		document.getElementById("keywordDecryptionMenu").style.top="30vw";
 		document.getElementById("keywordDecryptionMenu").style.opacity="0";
 		
-		currentPage = "typeSelectionMenu";
+	
+
+		document.getElementById("decryptionKeywordInput").value = "";
+		document.getElementById("decryptionKeywordMessageInput").value = ""
+		document.getElementById("encryptedKeywordOutput").innerHTML = "";
+		document.getElementById("decryptedKeywordOutput").innerHTML = "";
+		document.getElementById("keywordDecryptionMessageLabel").style.color="#cfd0d3";
+		document.getElementById("keywordInputLabelDecryption").style.color="#cfd0d3";
+
+			currentPage = "typeSelectionMenu";
 
 
 	}
@@ -576,3 +717,4 @@ function goBack(){
 
 
 
+console.log(getCharacter(2,2))

@@ -5,6 +5,7 @@ html{
 	
 	background: linear-gradient(87deg,#121214, #2c2c30);
 	min-width:300px;
+	
 
 }
 
@@ -21,9 +22,10 @@ h1 {
 	transition: 0.1s
 
 }
-#simpleCeaserMenuLabel{
+#simpleCeasarMenuLabel{
 	position: relative;
 	left:57px;
+	font-size:20.5px;
 
 }
 
@@ -33,7 +35,7 @@ h1 {
 	font-size:27px;
 }
 
-#simpleCeaserDecryptionMenuLabel{
+#simpleCeasarDecryptionMenuLabel{
 	font-size:20.5px;
 	position: relative;
 	left:35px;
@@ -55,9 +57,9 @@ transition: 0.1s
 
 
 div {
-
-font-size: 20px;
-	background: linear-gradient(#202022, #1c1d1f);
+	z-index: 1;
+	font-size: 20px;
+	background: #171718;
 	
 	
 	position: absolute; 
@@ -73,341 +75,392 @@ font-size: 20px;
 
 	
 	left: 40vw;
+	overflow: hidden;
+	white-space: nowrap;
+
+
+
 	
 	
 
 
 }
-	
-	
-	
-	.selectionMenu{
-		
-		left: 40vw;
-		top:250px;
-		width: 250px;
-		height: 110px;
-		transition:1s;
-		opacity:1;
-		
-	
-	}
-	
-	.typeMenu{
-	
-		width: 250px;
-		height: 175px;
-		top:30vw;
-		opacity:0;
-		transition:1s;
-		
-	}
-	
-	
-	.simpleCeaserMenu{
-		width: 255px;
-		height: 275px;
-		
-		opacity:0;
-		top:30vw;
-		transition:1s;
-	
-	
-	}
-	
-	
-	
-	
-	.keywordEncryptionMenu{
-		width: 270px;
-		height: 275px;
-		
-		opacity:0;
-		top:30vw;
-		transition:1s;
-	
-	
-	}
-	
-	.simpleCeaserDecryptionMenu{
-		width: 255px;
-		height: 245px;
-		
-		opacity:0;
-		top:30vw;
-		transition:1s;
-	
-	
-	}
 
-	.keywordDecryptionMenu{
-		width: 270px;
-		height: 275px;
-		
-		opacity:0;
-		top:30vw;
-		transition:1s;
-	
-	
-	}
-	
-	
-	
-	
-	
-	
-	/*General CSS for both buttons*/
-	button {	
-		
-		
-		color: #d7d8db;
-		width:125px;
-		height:35px;
-		border-radius: 12px;
-	
-		border: none;
-		background-color: #262629;
-		box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.9);
-		
-		
-	
-	}
-	
-	/*General CSS for both buttons when hovered over*/
-	
-	button:hover {
-	
-		transition: .3s;
-		box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-		
 
-		
 
-	}	
-		button:active {
-		transition: .1s;
-		
-		background-color: #4f5056;
-	}
+.selectionMenu{
+	
+	left: 50vw;
+	top:250px;
+	width: 250px;
+	height: 110px;
+	transition:1s;
+	opacity:0;
+	border-radius: 50px ;
+	
+
+}
+
+.typeMenu{
+
+	width: 250px;
+	height: 175px;
+	top:30vw;
+	opacity:0;
+	transition:1s;
+	
+}
+
+
+.simpleCeasarMenu{
+	width: 255px;
+	height: 245px;
+	
+	opacity:0;
+	top:30vw;
+	transition:1s;
+
+
+}
+
+
+
+
+.keywordEncryptionMenu{
+	width: 270px;
+	height: 275px;
+	
+	opacity:0;
+	top:30vw;
+	transition:1s;
+
+
+}
+
+.simpleCeasarDecryptionMenu{
+	width: 255px;
+	height: 245px;
+	
+	opacity:0;
+	top:30vw;
+	transition:1s;
+
+
+}
+
+.keywordDecryptionMenu{
+	width: 270px;
+	height: 275px;
+	
+	opacity:0;
+	top:30vw;
+	transition:1s;
+
+
+}
+
+
+
+
+
+
+/*General CSS for both buttons*/
+button {	
 	
 	
-	/*General CSS for both buttons when pressed*/
+	color: #d7d8db;
+	width:125px;
+	height:35px;
+	border-radius: 12px;
+
+	border: none;
+	background-color: #202124;
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.9);
 	
+	
+
+}
+
+/*General CSS for both buttons when hovered over*/
+
+button:hover {
+
+	transition: .3s;
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+	
+
+	
+
+}	
 	button:active {
-		transition: .1s;
-		
-		background-color: #313136;
-	}
+	transition: .1s;
+	
+	background-color: #4f5056;
+}
+
+
+/*General CSS for both buttons when pressed*/
+
+button:active {
+	transition: .1s;
+	
+	background-color: #313136;
+}
+
+
+#encryptionButton {
+
+	position: absolute;
+	left: 25px;
+	top: 100px;
+	font-size: 15px;
 	
 	
-	#encryptionButton {
 	
-		position: absolute;
-		left: 25px;
-		top: 100px;
-		font-size: 15px;
-		
-		
-		
-	
-	}
-	
-	
-	#simpleModeEnter{
-	
+
+}
+
+
+#simpleModeEnter{
+
 	width:325px;
-	
-	}
-	
-	
-	#keywordEncryptionEnter{
-	
+
+}
+
+
+
+#simpleDecryptionModeEnter{
+
+	width:325px;
+}
+
+#keywordEncryptionEnter{
+
 	width:345px;
-	
-	}
-	#decryptionButton {
-	
-		position: absolute;
-		left: 215px;
-		top: 100px;
-		
-		font-size: 14.75px;
-		
-		
-		
-	}
-	
-	#selectType {
-		position: absolute;
-		left: 110px;
-		top: 175px;
-		font-size: 14.75px;
-	
-	}
-	
-	input[type='radio']{
-		left: 270px;
+}
 
-		position: absolute;
+#decryptionKeywordEncryptionEnter{
 
-		}
+	width:345px;
 
-		input[type='radio']:after {
+}
+#decryptionButton {
+
+	position: absolute;
+	left: 215px;
+	top: 100px;
+	
+	font-size: 14.75px;
+	
+	
+	
+}
+
+#selectType {
+	position: absolute;
+	left: 110px;
+	top: 175px;
+	font-size: 14.75px;
+
+}
 
 
-		width: 15px;
-		height: 15px;
-		border-radius: 15px;
+
+input[type='radio']{
+	left: 270px;
+	height: 0px;
+	position: absolute;
+
+	}
+
+	input[type='radio']:after {
 
 
-		background-color: #262629;
-		content: '';
-		display: inline-block;
-		visibility: visible;
-		border: 2px solid white;
-    }
+	width: 15px;
+	height: 15px;
+	border-radius: 15px;
 
-    input[type='radio']:checked:after {
-		transition: .1s;
-        width: 15px;
-        height: 15px;
-        border-radius: 15px;
-        
-        background-color: #d7d8db;
-        content: '';
-        display: inline-block;
-        visibility: visible;
-        border: 2px solid white;
-    }
+
+	background-color: #262629;
+	content: '';
+	display: inline-block;
+	visibility: visible;
+	border: 2px solid white;
+}
+
+input[type='radio']:checked:after {
+	transition: .1s;
+	width: 15px;
+	height: 15px;
+	border-radius: 15px;
 	
-	
-	.simpleModeInput{
-			
-		color: white;
-		position: absolute;
-		left: 175px;
+	background-color: #d7d8db;
+	content: '';
+	display: inline-block;
+	visibility: visible;
+	border: 2px solid white;
+}
+
+
+
+.simpleModeInput{
 		
+	color: white;
+	position: absolute;
+	left: 175px;
+	
+	
+	border-radius: 12px;
+	background-color: #232324;
+	transition: .1s;
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.10);
+	
+}
+
+/*CSS for when the input fields are in use*/
+.simpleModeInput:focus {
+
+	background-color: #323235;
+	left: 180px;
+	
+}
+
+/*Removes the arrows in the number input box*/
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+	opacity: 0;
+}
+
+.simpleDecryptionInput{
 		
-		border-radius: 12px;
-		background-color: #262629;
-		transition: .1s;
-		box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.10);
+	color: white;
+	position: absolute;
+	left: 120px;
+	
+	
+	border-radius: 12px;
+	background-color: #232324;
+	transition: .1s;
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.10);
+	
+}
+
+/*CSS for when the input fields are in use*/
+.simpleDecryptionInput:focus {
+
+	background-color: #323235;
+	left: 125px;
+	
+}
+
+
+
+
+
+.keywordInput{
 		
-	}
-	
-	/*CSS for when the input fields are in use*/
-	.simpleModeInput:focus {
-	
-		background-color: #313136;
-		left: 180px;
-		
-	}
-	
-	/*Removes the arrows in the number input box*/
-	
-	input[type=number]::-webkit-inner-spin-button, 
-	input[type=number]::-webkit-outer-spin-button {
-		opacity: 0;
-	}
-	
-	.simpleDecryptionInput{
-			
-		color: white;
-		position: absolute;
-		left: 120px;
-		
-		
-		border-radius: 12px;
-		background-color: #262629;
-		transition: .1s;
-		box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.10);
-		
-	}
-	
-	/*CSS for when the input fields are in use*/
-	.simpleDecryptionInput:focus {
-	
-		background-color: #313136;
-		left: 125px;
-		
-	}
+	color: white;
+	position: absolute;
+	left: 125px;
 	
 	
+	border-radius: 12px;
+	background-color: #232324;
+	transition: .1s;
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.10);
 	
+}
+
+.keywordInput:focus{
+	background-color: #323235;
+	left: 130px;
 	
+}
+
+
+
+
+
+#simpleMessageOutput{
+	position: relative;
 	
-	.keywordInput{
-			
-		color: white;
-		position: absolute;
-		left: 125px;
-		
-		
-		border-radius: 12px;
-		background-color: #262629;
-		transition: .1s;
-		box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.10);
-		
-	}
+	left: 20px;
+}
+
+#simpleEncryptionOutput{
+	position: relative;
 	
-	.keywordInput:focus{
-		background-color: #313136;
-		left: 130px;
-		
-	}
+	left: 11px;
+}
+
+
+#keywordMessageOutput{
+	position: relative;
 	
+	left: 21px;
+}
+
+#keywordEncryptedOutput{
+	position: relative;
 	
+	left: 15px;
+}
+
+#backButton{
+	position: absolute;
 	
+	padding-left:3px;
+	width:35px;
+	height:35px;
 	
+	top:5px;
+	left:5px;
+	font-size:25px;
 	
-	#simpleMessageOutput{
-		position: relative;
-		
-		left: 20px;
-	}
+	box-shadow: 0 0px 0px 0 rgba(0,0,0,0.0), 0 0px 0px 0 rgba(0,0,0,0.0);
+	background: #1f1f21;
 	
-	#simpleEncryptionOutput{
-		position: relative;
-		
-		left: 11px;
-	}
-	
-	
-	#keywordMessageOutput{
-		position: relative;
-		
-		left: 21px;
-	}
-	
-	#keywordEncryptedOutput{
-		position: relative;
-		
-		left: 15px;
-	}
-	
-	#backButton{
-		position: absolute;
-		
-		padding-left:3px;
-		width:35px;
-		height:35px;
-		
-		top:5px;
-		left:5px;
-		font-size:25px;
-		
-		box-shadow: 0 0px 0px 0 rgba(0,0,0,0.0), 0 0px 0px 0 rgba(0,0,0,0.0);
-		background: #1f1f21;
-		
-		
-	
-	
-	}
-	#backButton:hover{
-		background: #262629;
-		box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-	}
 	
 
 
+}
+
+#backButton:hover{
+	background: #262629;
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
+html{
+	font-family: helvetica;
 	
+	
+	background: linear-gradient(87deg,#0b0b0c, #121214);
+	min-width:300px;
+	overflow: hidden; 
+
+}
+
+.backgroundAccentRight{
+    height: 101vh;
+    width:100vw;
+    background-color: #343435;
+    clip-path: polygon(100% 69%, 0% 100%, 100% 100%);
+   
+
+}
+
+.backgroundAccent{
+	z-index: -1;
+
+
+}
+.Background{
+	z-index: -1;
+    height: 101vh;
+    width:100vw;
+    filter: drop-shadow(-63px -1px 53px #29292b);
+
+}
+
