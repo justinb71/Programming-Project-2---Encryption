@@ -47,6 +47,7 @@ function decryptionMode(){
 
 }
 
+
 //This function selects the type of encryption/decryption the user wants (Simple Ceasar or Keyword Encryption)
 function selectType() {
 
@@ -340,127 +341,6 @@ function simpleCeasarDecyption(){
 	
 }
 
-function keywordDecryptionMode() {
-	let keywordValid = false;
-	let messageValid = false;
-	
-	
-	//Gets the users inputs
-	let keyword = document.getElementById("decryptionKeywordInput").value;
-	let message = document.getElementById("decryptionKeywordMessageInput").value
-
-	//Makes sure the input fields are not empty, if they are change corresponding text label to red
-	if (keyword.length == 0 ){
-		keywordValid = false;
-		document.getElementById("keywordInputLabelDecryption").style.color="#e02f1e";
-	
-	}else{
-		keywordValid = true;
-		document.getElementById("keywordInputLabelDecryption").style.color="#cfd0d3";
-	
-	}
-	
-	if (message.length == 0 ){
-		messageValid = false;
-		document.getElementById("keywordDecryptionMessageLabel").style.color="#e02f1e";
-	
-	}else{
-		messageValid = true;
-		document.getElementById("keywordDecryptionMessageLabel").style.color="#cfd0d3";
-		
-	
-	}
-
-	if (messageValid == true && keywordValid) {
-		let decryptedMessage = "";
-		let keywordIndex = []
-		let currentKeywordIndex = 0;
-		let decryptedIndex = 0;
-
-		for (p in keyword){
-
-			let index  = characterPositionFinder(keyword[p].toLowerCase())+1;
-
-			keywordIndex.push(index);
-		}
-
-		for (t in message){
-
-			//Handles spaces
-			if (message[t] == " "){
-				decryptedMessage = decryptedMessage + " ";
-				
-				currentKeywordIndex --;
-				
-			}else{ 
-
-				if (message[t].toUpperCase() == message[t]) {
-					//Gets the position of the character
-				currentCharIndex = characterPositionFinder(message[t].toLowerCase());
-									
-				//Combines the current keyword index with the index of current character
-				decryptedIndex = parseInt(currentCharIndex - keywordIndex[currentKeywordIndex]);
-				
-
-				if (currentCharIndex - keywordIndex[currentKeywordIndex] < 0 ){
-							
-					decryptedCharacter = getCharacter(0, 26 + decryptedIndex)
-				}else{
-					decryptedCharacter = getCharacter(0, decryptedIndex);
-				}
-
-				decryptedMessage = decryptedMessage + decryptedCharacter.toUpperCase();
-
-				}else{
-
-					//Gets the position of the character
-				currentCharIndex = characterPositionFinder(message[t].toLowerCase());
-									
-				//Combines the current keyword index with the index of current character
-				decryptedIndex = parseInt(currentCharIndex - keywordIndex[currentKeywordIndex]);
-				
-				//Gets the character at that encrypted index
-				
-				
-				//Appends the encrypeted character to the encrypted word
-				
-
-				if (currentCharIndex - keywordIndex[currentKeywordIndex] < 0 ){
-							
-					decryptedCharacter = getCharacter(0, 26 + decryptedIndex)
-				}else{
-					decryptedCharacter = getCharacter(0, decryptedIndex);
-				}
-
-				decryptedMessage = decryptedMessage + decryptedCharacter;
-				}
-				
-
-				
-			}
-
-			if (currentKeywordIndex == (keywordIndex.length-1)){
-				
-				currentKeywordIndex=0;
-			}else{
-			
-				currentKeywordIndex ++;
-			}
-
-			document.getElementById("encryptedKeywordOutput").innerHTML = message;
-			document.getElementById("decryptedKeywordOutput").innerHTML = decryptedMessage;
-		}
-
-
-	}
-	
-	//Outputs the results to the HTML page
-	
-	
-
-
-
-}
 
 //Function for Keyword Encryption
 function keywordEncryptionMode(){
@@ -567,6 +447,124 @@ function keywordEncryptionMode(){
 	}
 }
 
+
+// Function for Keyword Decryption
+function keywordDecryptionMode() {
+
+	//Validation variables
+	let keywordValid = false;
+	let messageValid = false;
+	
+	
+	//Gets the users inputs
+	let keyword = document.getElementById("decryptionKeywordInput").value;
+	let message = document.getElementById("decryptionKeywordMessageInput").value
+
+	//Makes sure the input fields are not empty, if they are change corresponding text label to red
+	if (keyword.length == 0 ){
+		keywordValid = false;
+		document.getElementById("keywordInputLabelDecryption").style.color="#e02f1e";
+	
+	}else{
+		keywordValid = true;
+		document.getElementById("keywordInputLabelDecryption").style.color="#cfd0d3";
+	
+	}
+	
+	if (message.length == 0 ){
+		messageValid = false;
+		document.getElementById("keywordDecryptionMessageLabel").style.color="#e02f1e";
+	
+	}else{
+		messageValid = true;
+		document.getElementById("keywordDecryptionMessageLabel").style.color="#cfd0d3";
+		
+	
+	}
+
+	if (messageValid == true && keywordValid) {
+
+		//Initialises Variables
+		let decryptedMessage = "";
+		let keywordIndex = []
+		let currentKeywordIndex = 0;
+		let decryptedIndex = 0;
+
+		for (p in keyword){
+
+			let index  = characterPositionFinder(keyword[p].toLowerCase())+1;
+
+			keywordIndex.push(index);
+		}
+
+		for (t in message){
+
+			//Handles spaces
+			if (message[t] == " "){
+				decryptedMessage = decryptedMessage + " ";
+				
+				currentKeywordIndex --;
+				
+			}else{ 
+
+				if (message[t].toUpperCase() == message[t]) {
+	
+				currentCharIndex = characterPositionFinder(message[t].toLowerCase());
+									
+				decryptedIndex = parseInt(currentCharIndex - keywordIndex[currentKeywordIndex]);
+				
+
+				if (currentCharIndex - keywordIndex[currentKeywordIndex] < 0 ){
+							
+					decryptedCharacter = getCharacter(0, 26 + decryptedIndex)
+				}else{
+					decryptedCharacter = getCharacter(0, decryptedIndex);
+				}
+
+				decryptedMessage = decryptedMessage + decryptedCharacter.toUpperCase();
+
+				}else{
+				currentCharIndex = characterPositionFinder(message[t].toLowerCase());
+	
+				decryptedIndex = parseInt(currentCharIndex - keywordIndex[currentKeywordIndex]);
+				
+
+				if (currentCharIndex - keywordIndex[currentKeywordIndex] < 0 ){
+							
+					decryptedCharacter = getCharacter(0, 26 + decryptedIndex)
+				}else{
+					decryptedCharacter = getCharacter(0, decryptedIndex);
+				}
+
+				decryptedMessage = decryptedMessage + decryptedCharacter;
+				}
+				
+
+				
+			}
+
+			if (currentKeywordIndex == (keywordIndex.length-1)){
+				
+				currentKeywordIndex=0;
+			}else{
+			
+				currentKeywordIndex ++;
+			}
+
+			document.getElementById("encryptedKeywordOutput").innerHTML = message;
+			document.getElementById("decryptedKeywordOutput").innerHTML = decryptedMessage;
+		}
+
+
+	}
+	
+	//Outputs the results to the HTML page
+	
+	
+
+
+
+}
 
 
 //This function returns the position of the character in the alphabet
@@ -714,7 +712,18 @@ function goBack(){
 	}
 }
 
-
-
-
-console.log(getCharacter(2,2))
+//When enter is pressed it runs the submit function
+document.addEventListener("keypress", function(event) {
+	if (event.keyCode == 13) {
+		
+		if(currentPage == "simpleCeasarEncryption"){
+			simpleCeasarMode();
+		}else if (currentPage == "keywordEncryptionMenu"){
+			keywordEncryptionMode();
+		}else if (currentPage == "keywordDecryptionMenu"){
+			keywordDecryptionMode();
+		}else if(currentPage == "simpleCeasarDecryption"){
+			simpleCeasarDecyption();
+		}
+	}
+});
