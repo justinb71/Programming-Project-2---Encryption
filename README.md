@@ -6,4 +6,4 @@ The program is meant to take a message from the user encrypt or decrypt (using S
 
 To run open the HTML file ("Main")
 
-Final Grade: /45
+Final Grade: 43/45
