@@ -1,4 +1,4 @@
-# Programming-Project-2---Ecryption
+# Programming-Project-2---Encryption
 
 This program was made as part of my A level course
 
